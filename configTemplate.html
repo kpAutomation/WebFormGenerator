@@ -1,0 +1,70 @@
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script>
+		$(document).ready(function() {
+			$('.config-form').attr('action', window.location.origin + window.location.pathname);
+		});
+	</script>
+	<style>
+		form {
+			width: 800px;
+			display: inline-block;
+			padding: 10px 40px;
+		}
+		.tv-submit-btn {
+			float: right;
+			font-size: 16px;
+			min-width: 120px;
+			background-color: #6bc63d;
+			color: #FFF;
+			border: none;
+		}
+		.tv-submit-btn:hover, .tv-submit-btn:active, .tv-submit-btn:visited {
+			background-color: #5cad33 !important;
+			color: #FFF;
+		}
+	</style>
+</head>
+<body>
+	<!--<form onsubmit='return onSubmit(this)'>-->
+	<form action="" method="GET" class="config-form">
+		<img src="http://www.trackvia.com/wp-content/uploads/2015/03/TrackVia_logo_rev_191px.png"/>
+		<div class="form-group">
+            <label for="access_token">Long Life Access Token</label>
+			<input class="form-control" type="text" id="access_token" name="access_token">
+		</div>
+		<div class="form-group">
+            <label for="user_key">User Key</label>
+			<input class="form-control" type="text" id="user_key" name="user_key">
+		</div>
+		<div class="form-group">
+			<label for="username">Username</label>
+			<input class="form-control" type="text" id="username" name="username">
+		</div>
+		<div class="form-group">
+			<label for="password">Password</label>
+			<input class="form-control" type="password" id="password" name="password">
+		</div>
+		<div class="form-group">
+			<label for="app_id">App ID</label>
+			<input class="form-control" type="text" id="app_id" name="app_id">
+		</div>
+        <div class="form-group">
+			<label for="table_id">Table ID</label>
+			<input class="form-control" type="text" id="table_id" name="table_id">
+		</div>
+        <div class="form-group">
+			<label for="view_id">View ID</label>
+			<input class="form-control" type="text" id="view_id" name="view_id">
+		</div>
+        <div class="form-group">
+			<label for="form_id">Form ID</label>
+			<input class="form-control" type="text" id="form_id" name="form_id">
+		</div>
+		<button class="btn tv-submit-btn" type='submit'>Submit</button>
+	</form>
+</body>
+</html>
