@@ -15,7 +15,7 @@ FieldFactory.prototype.createFormField = function(trackviaField) {
     var type = trackviaField.fieldMetaType;
     // console.log(trackviaField.name + ': ' + type);
 
-    if (type === 'shortAnswer' || type === 'indentifier') {
+    if (type === 'shortAnswer' || type === 'indentifier' || type === 'email') {
         return new ShortAnswer(trackviaField);
     }
 
@@ -44,7 +44,7 @@ FieldFactory.prototype.createFormField = function(trackviaField) {
         return new DateTimeField(trackviaField);
     }
 
-    if (type === 'image') {
+    if (type === 'image' || type === 'document') {
         return new FileUploadField(trackviaField);
     }
 

@@ -3,11 +3,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script>
-		$(document).ready(function() {
-			$('.config-form').attr('action', window.location.origin + window.location.pathname);
-		});
-	</script>
 	<style>
 		form {
 			width: 800px;
@@ -29,7 +24,6 @@
 	</style>
 </head>
 <body>
-	<!--<form onsubmit='return onSubmit(this)'>-->
 	<form action="" method="GET" class="config-form">
 		<img src="http://www.trackvia.com/wp-content/uploads/2015/03/TrackVia_logo_rev_191px.png"/>
 		<div class="form-group">
@@ -37,7 +31,7 @@
 			<input class="form-control" type="text" id="access_token" name="access_token">
 		</div>
 		<div class="form-group">
-            <label for="user_key">User Key</label>
+			<label for="username">User Key</label>
 			<input class="form-control" type="text" id="user_key" name="user_key">
 		</div>
 		<div class="form-group">
@@ -47,6 +41,10 @@
 		<div class="form-group">
 			<label for="password">Password</label>
 			<input class="form-control" type="password" id="password" name="password">
+		</div>
+		<div class="form-group">
+            <label for="user_key">Host</label>
+			<input class="form-control" type="text" id="host" name="host" value="go.trackvia.com">
 		</div>
 		<div class="form-group">
 			<label for="app_id">App ID</label>
@@ -66,5 +64,24 @@
 		</div>
 		<button class="btn tv-submit-btn" type='submit'>Submit</button>
 	</form>
+
+	<script>
+		var $form = $('.config-form');
+		$form.attr('action', window.location.href);
+
+		// $form.submit(function(event) {
+		// 	var formData = JSON.stringify($form.serializeArray());
+		// 	debugger;
+		// 	$.ajax({
+		// 		type: 'POST',
+		// 		url: window.location.href,
+		// 		data: formData,
+		// 		dataType: 'json',
+		// 		contentType: 'application/json'
+		// 	});
+
+		// 	event.preventDefault();
+		// });	
+	</script>
 </body>
 </html>

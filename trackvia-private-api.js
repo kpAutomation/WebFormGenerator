@@ -40706,6 +40706,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	            return new Promise(function (resolve, reject) {
 	                request(requestDetails, function (err, response, body) {
+	                    if (err) {
+	                        return reject('Error processing request: ' + err);
+	                    }
 
 	                    // Make sure we are working with json
 	                    if (typeof body === 'string') {

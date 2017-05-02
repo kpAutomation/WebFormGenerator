@@ -16,7 +16,9 @@ DateTimeField.prototype.generateHTML = function() {
     var id = idService.getNext();
     var html = `<div class="form-group">
     <label for="${id}">${this.name}</label>
-    <input type="datetime-local" id="${id}" class="form-control" name="${this.name}">
+    <div style="position:relative">
+        <input id="${id}" class="form-control datetime" name="${this.name}">
+    </div>
 </div>`;
 
     this.selector = `#${id}`;

@@ -16,11 +16,18 @@ exports.handler = function(event, context, callback) {
 }
 
 function returnWebFormZip(event, callback) {
+    // // first, unpack json data
+    // var dataItems = event.data;
+    // dataItems.forEach(function(item) {
+    //     event[item.name] = item.value;
+    // });
+
     var pWebForm = buildWebForm({
         access_token: event.access_token,
         user_key: event.user_key,
         username: event.username,
         password: event.password,
+        host: event.host,
         app_id: event.app_id,
         table_id: event.table_id,
         view_id: event.view_id,
@@ -36,23 +43,19 @@ function returnWebFormZip(event, callback) {
         output.on('close', function() {
             console.log('zip output closed.');
             var b64_zip = base64_encode('/tmp/webform.zip');
-            var html = `
-                <html><body><a href="data:application/zip;base64,${b64_zip}" download="webform.zip">Download</a></body></html>
-            `;
-            console.log(`response html: ${html}`);
-            var response = { "content-type": "text/html", "payload": html };
+            var response = { "content-type": "application/zip", "encoding": "base64", "payload": b64_zip };
             callback(null, response);
         });
         archive.pipe(output);
-        archive.file('/tmp/index.html', { name: 'index.html' });
-        archive.file('trackvia-api.js', { name: 'trackvia-api.js' });
+        archive.file('/tmp/index.js', { name: 'index.js' }); // aws lambda wrapper that returns the web form
+        archive.file('/tmp/form.html', { name: 'form.html' }); // actual web form
         archive.finalize();
     });
 }
 
 function returnConfigForm(callback) {
     fs.readFile('./configTemplate.html', 'utf-8', function(err, html) {
-        if (err) { 
+        if (err) {
             console.log(err);
             if (callback) {
                 callback(err, null);

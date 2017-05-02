@@ -30,23 +30,11 @@ FileUploadField.prototype.getValueHTML = function() {
     }
 
     return `function() {
-        var htmlElement = document.querySelector('${this.selector}');
-        var file = htmlElement.files[0];
-        if (!file) {
-            return null;
-        }
-        
-        var fileReader = new FileReader();
-        fileReader.readAsArrayBuffer(file);
-
-        return new Promise((function(resolve, reject) {
-            fileReader.onload = function(event) {
-                resolve({
-                    fileName: file.name,
-                    arrayBuffer: event.target.result
-                });
-            };
-        }));
+        return new Promise(function(resolve, reject) {
+            var htmlElement = document.querySelector('${this.selector}');
+            var file = htmlElement.files[0];
+            return resolve(file);
+        });
     }`;
 };
 
