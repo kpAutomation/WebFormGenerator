@@ -20,7 +20,7 @@ Dropdown.prototype.generateHTML = function() {
     });
     var id = idService.getNext();
     var html = `<div class="form-group">
-    <label for="${id}">${this.name}</label>
+    <label for="${id}">${this.labelName ? this.labelName : this.name}</label>
     <select id="${id}" class="form-control" name="${this.name}"><option value=""></option>${options}</select>
 </div>`;
 

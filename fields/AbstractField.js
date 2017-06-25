@@ -1,5 +1,6 @@
 var AbstractField = function(field) {
     this.name = field.name;
+    this.labelName = field.labelName;
     this.type = field.fieldMetaType;
     this.required = field.required;
     this.unique = field.unique;

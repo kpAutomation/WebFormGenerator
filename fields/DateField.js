@@ -15,7 +15,7 @@ DateField.prototype.generateHTML = function() {
 
     var id = idService.getNext();
     var html = `<div class="form-group">
-    <label for="${id}">${this.name}</label>
+    <label for="${id}">${this.labelName ? this.labelName : this.name}</label>
     <input id="${id}" class="form-control date" name="${this.name}">
 </div>`;
 

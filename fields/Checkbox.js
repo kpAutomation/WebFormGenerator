@@ -21,7 +21,7 @@ Checkbox.prototype.generateHTML = function() {
     });
 
     var html = `<fieldset id="${id}" class="form-group">
-    <legend>${this.name}</legend>
+    <legend>${this.labelName ? this.labelName : this.name}</legend>
     ${checkboxes}
 </fieldset>`;
 

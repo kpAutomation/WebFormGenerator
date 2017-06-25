@@ -15,7 +15,7 @@ RelationshipField.prototype.generateHTML = function() {
 
     var id = idService.getNext();
     var html = `<div class="form-group">
-    <label for="${id}">${this.name}</label>
+    <label for="${id}">${this.labelName ? this.labelName : this.name}</label>
     <select type="text" id="${id}" class="form-control" name="${this.name}"><option value=""></option></select>
 </div>`;
 
